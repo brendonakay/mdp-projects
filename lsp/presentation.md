@@ -51,11 +51,9 @@ TODO
 I like using Vim/NeoVim and wanted to get the most out of my
 editor.
 
-Vim makes me feel "close to the metal".
+Vim/NeoVim makes me feel "close to the metal".
 
 It can be a very powerful tool once learned.
-
-TODO
 
 ---
 
@@ -66,15 +64,21 @@ JSON-RPC-based protocol for use between source code editors
 or integrated development environments (IDEs) and servers
 that provide programming language-specific features.
 
-*The goal of the protocol is to allow programming language*
+*"The goal of the protocol is to allow programming language*
 *support to be implemented and distributed independently of*
-*any given editor or IDE*"
+*any given editor or IDE"*
 
 ---
 
-## LSP example
+## LSP Overview
 
 [https://microsoft.github.io//language-server-protocol/overviews/lsp/overview/](https://microsoft.github.io//language-server-protocol/overviews/lsp/overview/#:~:text=and%20tooling%20vendors!-,How%20it%20works,-A%20language%20server)
+
+---
+
+## LSP Features
+
+TODO
 
 ---
 
@@ -86,7 +90,7 @@ that provide programming language-specific features.
 
 ---
 
-## What is `gopls`?
+## LSP with `gopls`
 
 https://github.com/golang/tools/tree/master/gopls
 
@@ -96,9 +100,9 @@ TODO
 
 ## Like all things Vim... RTFM
 
-At first I thought I could brute force a nice nvim config by
-reading blog articles and copying examples, but I eventually
-found myself at the doorstep of the nvim reference manual.
+When I first began this journey I thought I could brute force a nice NeoVim
+config by reading blog articles and copying examples, but I eventually found
+myself at the doorstep of the nvim reference manual.
 
 `:help lsp-quickstart`
 
@@ -157,9 +161,12 @@ local lsp = require 'lspconfig' lsp.gopls.setup{}
 
 ---
 
-## Final plugin list
+## Final plugin list related to LSP
 
-TODO
+- shougo/deoplete-lsp
+- nvim-treesitter/nvim-treesitter
+- ojroques/nvim-lspfuzzy
+- sbdchd/neoformat
 
 ---
 
@@ -224,3 +231,4 @@ https://en.wikipedia.org/wiki/Language_Server_Protocol
 https://github.com/microsoft/language-server-protocol
 https://microsoft.github.io/language-server-protocol/
 https://microsoft.github.io/language-server-protocol/overviews/lsp/overview/
+https://langserver.org/
