@@ -1,0 +1,10 @@
+# Tailing logs
+cat /tmp/gopls.log | grep Params | sed "s/Params: \(.*\)/\1/g" | jq .
+
+https://github.com/golang/tools/blob/master/gopls/doc/troubleshooting.md#capture-logs
+
+# Demo config with logs enabled
+-- Golang LSP configs
+lsp.gopls.setup{
+    cmd = { "gopls", "-v", "-rpc.trace", "-logfile=/tmp/gopls.log" }
+}
