@@ -10,17 +10,20 @@
 
 ## Motivation
 
-I wanted a universal debugger service, rather than relying on a bunch of
-different plugins.
+I wanted a universal debugger service rather than relying on a bunch of
+different plugins for my editor.
 
 ---
 
-## Debugger Adapter Protocol
+## Debug Adapter Protocol
 
-Generic debugger interface between a debugger and an API consumer.
+[Built by Microsoft](https://microsoft.github.io/debug-adapter-protocol/) for VSCode.
+
+Since it's a protocol other editors and tools can implement support for it.
+
 From the `nvim-dap` help page...
 
-```
+```bash
 A debug adapter is a facilitator between nvim-dap (the client), and a
 language-specific debugger:
 
@@ -32,29 +35,41 @@ language-specific debugger:
                 |        Debug adapter and debugger could be the same process
                 |
          Communication via the Debug Adapter Protocol
-
-
-To debug applications, you need to configure two things per language:
-
-- A debug adapter (|dap-adapter|).
-- How to launch your application to debug or how to attach to a running
-  application (|dap-configuration|).
 ```
 
 ---
 
 ## Methodology
 
-To demonstrate the use of a DAP I will be using the Vim plugin
+To demonstrate the use of the DAP I will be using the Neovim plugin
 [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 
 For the debugger server I will be using the Go debugger
 [Delve](https://github.com/go-delve/delve), which has a DAP option.
 
-```
+```bash
 $ dlv -h | grep DAP
 dap         [EXPERIMENTAL] Starts a TCP server communicating via Debug Adaptor Protocol (DAP).
 ```
+
+---
+
+## Pros
+
+Multiple debuggers with a single interface.
+[Here](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/) is a list of available DAP implementations.
+
+Can be used in many different IDEs.
+
+Debugger control, logging, and other features.
+
+---
+
+## Cons
+
+Since it's generic it might lack the depth of proprietary debuggers.
+
+Yet another dependency to maintain.
 
 ---
 
@@ -62,7 +77,7 @@ dap         [EXPERIMENTAL] Starts a TCP server communicating via Debug Adaptor P
 
 This is not a claim to be the "best" way to debug Go services.
 
-Goland, VSCode, and many other editors have rich proprietary tooling that can be
+Many other editors have rich proprietary tooling that can be
 easier to configure or setup.
 
 Even print logging is a valid method of debugging.
@@ -82,6 +97,15 @@ I have a proof-of-concept for our Docker development services in [backend PR #29
 
 ---
 
-## References
+## Improvements
 
-https://microsoft.github.io/debug-adapter-protocol/
+I haven't yet tried [debugpy](https://github.com/microsoft/debugpy/), a DAP
+implementation for Python 3.
+
+---
+
+## Thank you!
+
+Questions?
+
+
